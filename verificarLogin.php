@@ -25,7 +25,7 @@ if(isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha'])
     }
     else{
         echo "Login e senha corretos";
-        header('Location: home.php');
+        header('Location: usuarios.php');
     }
 
 }
