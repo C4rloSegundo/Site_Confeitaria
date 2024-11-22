@@ -8,7 +8,7 @@ if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true
 }
 $logado = $_SESSION['login'];
 
-  $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+  $sql = "SELECT * FROM bolos ORDER BY id DESC";
 
   $result = $conexao->query($sql);
 
@@ -58,13 +58,13 @@ $logado = $_SESSION['login'];
           </a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link active bg-gradient-danger text-white" href="../pages/tables.html">
+          <a class="nav-link text-dark" href="usuarios.php">
             <i class="material-symbols-rounded opacity-5">table_view</i>
             <span class="nav-link-text ms-1">Usuarios</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="bolos.php">
+          <a class="nav-link active bg-gradient-danger text-white" href="">
             <i class="material-symbols-rounded opacity-5">receipt_long</i>
             <span class="nav-link-text ms-1">Bolos</span>
           </a>
@@ -241,8 +241,8 @@ $logado = $_SESSION['login'];
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-danger shadow-dark border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
-                <h6 class="text-white text-capitalize ps-3 mb-0">Usuarios</h6>
-                <a href="cadUsuarios.php" class="btn btn-white text-capitalize me-3">Cadastrar Usuarios</a>
+                <h6 class="text-white text-capitalize ps-3 mb-0">Bolos</h6>
+                <a href="cadBolos.php" class="btn btn-white text-capitalize me-3">Cadastrar Bolos</a>
               </div>
 
             </div>
@@ -252,8 +252,10 @@ $logado = $_SESSION['login'];
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Imagem</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Senha</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Url</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
@@ -261,9 +263,12 @@ $logado = $_SESSION['login'];
                     <?php 
                       while($user_data = mysqli_fetch_assoc($result)){
                         echo "<tr>";
+                        
                         echo "<td>".$user_data['id']."</td>";
-                        echo "<td>".$user_data['login']."</td>";
-                        echo "<td>".$user_data['senha']."</td>";
+                        echo "<td><img src='".$user_data['url']."' width='50' height='50' </td>";
+                        echo "<td>".$user_data['nome']."</td>";
+                        echo "<td>".$user_data['url']."</td>";
+                        echo "<td>".$user_data['preco']."</td>";
                         echo "<td>
                           <a class='btn btn-sm btn-primary' href='editUsuarios.php?id=$user_data[id]'>
                           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
