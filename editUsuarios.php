@@ -1,4 +1,4 @@
-
+<?php  include('editarUsuarios.php'); ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,13 +14,14 @@
 
 <body>
     <div class="form-container">
-        <form action="verificarCadastro.php" method="POST">
+        <form action="saveEdit.php" method="POST">
             <h1>Cadastro de Funcionarios</h1>
-            <input type="text" placeholder="Nome" name="login" >
+            <input type="text" value="<?php echo $login ?>" name="login" >
             <br><br>
-            <input type="password" placeholder="Senha" name="senha">
+            <input type="text" value="<?php echo $senha ?>" name="senha">
             <br><br>
-            <button name="submit" type="submit" id="submit" value="Enviar">Enviar</button>
+            <input type="hidden" value="<?php echo $id ?>" name="id">
+            <button name="update" type="submit" id="update" value="Enviar">Enviar</button>
         </form>
     </div>
 </body>
