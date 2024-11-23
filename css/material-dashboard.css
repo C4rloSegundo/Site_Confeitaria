@@ -211,6 +211,14 @@ body {
   -webkit-tap-highlight-color: rgba(10, 10, 10, 0);
 }
 
+.short-url {
+  white-space: nowrap; /* Não quebra a linha */
+  overflow: hidden;    /* Oculta o texto que excede o contêiner */
+  text-overflow: ellipsis; /* Adiciona reticências (...) ao final do texto que não cabe */
+  max-width: 150px;   /* Define a largura máxima da célula */
+  display: block;      /* Necessário para que o text-overflow funcione */
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;

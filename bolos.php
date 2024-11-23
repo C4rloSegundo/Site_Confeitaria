@@ -267,7 +267,7 @@ $logado = $_SESSION['login'];
                         echo "<td>".$user_data['id']."</td>";
                         echo "<td><img src='".$user_data['url']."' width='50' height='50' </td>";
                         echo "<td>".$user_data['nome']."</td>";
-                        echo "<td>".$user_data['url']."</td>";
+                        echo "<td class='short-url'>".$user_data['url']."</td>";
                         echo "<td>".$user_data['preco']."</td>";
                         echo "<td>
                           <a class='btn btn-sm btn-primary' href='editUsuarios.php?id=$user_data[id]'>
