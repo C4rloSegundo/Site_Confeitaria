@@ -1,3 +1,20 @@
+<?php
+session_start();
+include_once('config.php');
+if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)) {
+  unset($_SESSION['login']);
+  unset($_SESSION['senha']);
+  header('location:login.php');
+}
+$logado = $_SESSION['login'];
+
+  $sql = "SELECT * FROM bolos ORDER BY id DESC";
+
+  $result = $conexao->query($sql);
+
+  // print_r($result);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -133,21 +150,34 @@
   <h3>Menu</h3>
   <h2>Deliciosos doces são aqui <i class="fa-solid fa-arrow-down"></i></h2>
 
-
   <div class="row" style="margin-top: 30px;">
+  <?php 
+    while ($user_data = mysqli_fetch_assoc($result)) {
+
+
+      echo "<div class='col-md-3 py-3 py-md-0'>";
+      echo "<div class='card'>";
+      echo  "<img src='".$user_data['url']."' alt=''>";
+      echo  "<div class='card-body'>";
+      echo   "<h3>M Chicken</h3>";
+      echo   "<h6>Lorem ipsum dolor sit amet.</h6>";
+      echo    "<p>$20 <i class='fa-solid fa-credit-card'></i></p>";
+      echo  "</div>";
+      echo "</div>";
+    echo "</div>";
+    }
+  ?>
+</div>
+
+
+
+  <!-- <div class="row" style="margin-top: 30px;">
     <div class="col-md-3 py-3 py-md-0">
       <div class="card">
         <img src="./images/Mangalorean_Chicken.png" alt="">
         <div class="card-body">
           <h3>M Chicken</h3>
           <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
 
           <p>$20 <i class="fa-solid fa-credit-card"></i></p>
         </div>
@@ -209,7 +239,7 @@
     </div>
 
 
-  </div>
+  </div> -->
 
 
 

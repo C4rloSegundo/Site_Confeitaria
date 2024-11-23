@@ -15,7 +15,7 @@
 <body>
     <div class="form-container">
         <form action="saveEdit.php" method="POST">
-            <h1>Cadastro de Funcionarios</h1>
+            <h1>Editar Funcionarios</h1>
             <input type="text" value="<?php echo $login ?>" name="login" >
             <br><br>
             <input type="text" value="<?php echo $senha ?>" name="senha">
