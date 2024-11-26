@@ -25,14 +25,14 @@ if(isset($_POST['submit'])){
     if($result != 1)
     {
         echo "algo deu errado";
-        header('Location: cadBolos.php');
+        header('Location: ../pages/cadBolos.php');
     }
     else{
         echo "nome e url corretos";
-        header('Location: bolos.php');
+        header('Location: ../pages/bolos.php');
     }
 
 }else{
-    header('Location: bolos.php');
+    header('Location: ../pages/bolos.php');
 }
 ?>

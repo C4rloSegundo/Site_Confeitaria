@@ -23,13 +23,13 @@ if (isset($_POST['submit']) && !empty($_POST['login']) && !empty($_POST['senha']
         echo "Login ou senha incorretos";
         unset($_SESSION['login']);
         unset($_SESSION['senha']);
-        header('Location: login.php');
+        header('Location: ../pages/login.php');
     } else {
         echo "Login e senha corretos";
         $_SESSION['login'] = $login;
         $_SESSION['senha'] = $senha;
-        header('Location: usuarios.php');
+        header('Location: ../pages/usuarios.php');
     }
 } else {
-    header('Location: login.php');
+    header('Location: ../pages/login.php');
 }

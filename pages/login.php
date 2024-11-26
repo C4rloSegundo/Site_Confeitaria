@@ -6,7 +6,7 @@ if(isset($_POST['submit'])){
     print_r($_POST['senha']);
 
 
-    include_once('config.php');
+    include_once('../db/config.php');
 
     $login = $_POST['login'];
     $senha = $_POST['senha'];
@@ -24,14 +24,14 @@ if(isset($_POST['submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="../css/login.css">
     <title>Tela de login</title>
 
 </head>
 
 <body>
     <div>
-        <form action="verificarLogin.php" method="POST">
+        <form action="../db/verificarLogin.php" method="POST">
             <h1>Login</h1>
             <input type="text" placeholder="Nome" name="login">
             <br><br>

@@ -1,10 +1,10 @@
 <?php
 session_start();
-include_once('config.php');
+include_once('../db/config.php');
 if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)) {
   unset($_SESSION['login']);
   unset($_SESSION['senha']);
-  header('location:login.php');
+  header('location: ../pages/login.php');
 }
 $logado = $_SESSION['login'];
 
@@ -23,7 +23,7 @@ $logado = $_SESSION['login'];
     <title>Confeitaria tudo nosso</title>
 
     <!-- STYLE CSS LINK -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- STYLE CSS LINK -->
 
     <!-- BOOTSTRAP CDN LINK -->
@@ -50,7 +50,7 @@ $logado = $_SESSION['login'];
 
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-sm" id="navbar">
-  <a href="#" class="navbar-brand" id="logo"><img src="./images/logo.png" alt=""></a>
+  <a href="#" class="navbar-brand" id="logo"><img src="../images/logo.png" alt=""></a>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
     <span><i class="fa-solid fa-bars"></i></span>
   </button>
@@ -97,7 +97,7 @@ $logado = $_SESSION['login'];
     <a href="#menu" id="home-btn">Nosso menu</a>
   </div>
   <div class="img">
-    <img src="./images/bolo_principal.png" alt="">
+    <img src="../images/bolo_principal.png" alt="">
   </div>
 </section>
 <!-- Home Section End -->
@@ -112,7 +112,7 @@ $logado = $_SESSION['login'];
 
     <div class="col-md-4 py-3 py-md-0">
       <div class="card">
-        <img src="./images/img1.png" alt="">
+        <img src="../images/img1.png" alt="">
         <div class="card-body">
         <h1>Fácil de pedir</h1>
         <p>você só precisa de alguns passos para <br> fazer sua encomenda</p>
@@ -121,7 +121,7 @@ $logado = $_SESSION['login'];
     </div>
     <div class="col-md-4 py-3 py-md-0">
       <div class="card">
-        <img src="./images/img2.png" alt="">
+        <img src="../images/img2.png" alt="">
         <div class="card-body">
         <h1>Entrega rápida </h1>
         <p>Entrega sempre na hora <br> e com cuidado </p>
@@ -130,7 +130,7 @@ $logado = $_SESSION['login'];
     </div>
     <div class="col-md-4 py-3 py-md-0">
       <div class="card">
-        <img src="./images/img3.png" alt="">
+        <img src="../images/img3.png" alt="">
         <div class="card-body">
         <h1>Melhor qualidade</h1>
         <p>Não só entrega rapida mas qualidade também é nosso <br> numero um</p>
@@ -178,154 +178,10 @@ $logado = $_SESSION['login'];
 
 
 
-  <!-- <div class="row" style="margin-top: 30px;">
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/Mangalorean_Chicken.png" alt="">
-        <div class="card-body">
-          <h3>M Chicken</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-
-          <p>$20 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/Garlic_Fried.png" alt="">
-        <div class="card-body">
-          <h3>Garlic Fried</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$30 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/Grilled_beef_steak.png" alt="">
-        <div class="card-body">
-          <h3>G Beef Steak</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$120 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/Pineapple_Fried_Rice.png" alt="">
-        <div class="card-body">
-          <h3>Fried Rice</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$200 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-
-
-  </div> -->
+ 
 
 
 
-  <!-- <div class="row" style="margin-top: 30px;">
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/Grilled_pork_ribs.png" alt="">
-        <div class="card-body">
-          <h3>Pork Ribs</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$300 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/crispy_fried.png" alt="">
-        <div class="card-body">
-          <h3>Crispy Fried</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$10 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/sushi__japanese.png" alt="">
-        <div class="card-body">
-          <h3>Sushi Japanes</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$150 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/Lyulya_kebab.png" alt="">
-        <div class="card-body">
-          <h3>Lyulya Kebab</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$250 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-
-
-  </div> -->
 </section>
 <!-- Our Menu End -->
 
@@ -342,94 +198,6 @@ $logado = $_SESSION['login'];
 
 
 
-<!-- Our Menu Start -->
-<!-- <section class="menu" id="menu">
-  <h3>Our Menu</h3>
-
-
-  <div class="row" style="margin-top: 30px;">
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/burger.png" alt="">
-        <div class="card-body">
-          <h3>Burger</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$60 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/fasr food.png" alt="">
-        <div class="card-body">
-          <h3>Fast Food</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$50 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/rice.png" alt="">
-        <div class="card-body">
-          <h3>Rice Dishe</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$120 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-3 py-3 py-md-0">
-      <div class="card">
-        <img src="./images/pizza.png" alt="">
-        <div class="card-body">
-          <h3>Pizza</h3>
-          <h6>Lorem ipsum dolor sit amet.</h6>
-          <div class="rating">
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-            <i class="fa-solid fa-star checked"></i>
-          </div>
-
-          <p>$30 <i class="fa-solid fa-credit-card"></i></p>
-        </div>
-      </div>
-    </div>
-
-
-  </div>
-
-
-
-
-  </div>
-</section> -->
-<!-- Our Menu End -->
 
 
 
@@ -442,7 +210,7 @@ $logado = $_SESSION['login'];
   <div class="row">
     <div class="col-md-5 py-3 py-md-0">
       <div class="card">
-        <img src="./images/img1.png" alt="">
+        <img src="../images/img1.png" alt="">
       </div>
     </div>
     <div class="col-md-7 py-3 py-md-0">
@@ -483,7 +251,7 @@ $logado = $_SESSION['login'];
 
     <div class="col-md-4 py-3 py-md-0">
       <div class="card">
-        <img src="./images/review-img.png" alt="">
+        <img src="../images/review-img.png" alt="">
       </div>
     </div>
 
@@ -491,8 +259,8 @@ $logado = $_SESSION['login'];
       <h3>O que dizem sobre nós</h3>
       <h2>O que nossos clientes <br>falam sobre nós</h2>
       <p>muito ruim! tive intoxicação  alimentar e fique 2 meses no hospital</p>
-      <h5><img src="./images/image.png" alt="" width="60px"><a href="#">Tigas bota fofo</a></h5>
-      <h5><img src="./images/image2.png" alt="" width="60px"><a href="#">Joaquim moedas</a></h5>
+      <h5><img src="../images/image.png" alt="" width="60px"><a href="#">Tigas bota fofo</a></h5>
+      <h5><img src="../images/image2.png" alt="" width="60px"><a href="#">Joaquim moedas</a></h5>
       <div class="rating">
         <i class="fa-solid fa-star checked"></i>
         <i class="fa-solid fa-star checked"></i>

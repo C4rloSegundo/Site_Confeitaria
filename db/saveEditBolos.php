@@ -13,5 +13,5 @@
         $result = $conexao->query($sqlUpdate);
         
     }
-    header("Location: bolos.php");
+    header("Location: ../pages/bolos.php");
 ?>

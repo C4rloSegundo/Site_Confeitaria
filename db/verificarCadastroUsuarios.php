@@ -23,14 +23,14 @@ if(isset($_POST['submit'])){
     if($result != 1)
     {
         echo "algo deu errado";
-        header('Location: cadUsuarios.php');
+        header('Location: ../pages/cadUsuarios.php');
     }
     else{
         echo "Login e senha corretos";
-        header('Location: usuarios.php');
+        header('Location: ../pages/usuarios.php');
     }
 
 }else{
-    header('Location: usuarios.php');
+    header('Location: ../pages/usuarios.php');
 }
 ?>

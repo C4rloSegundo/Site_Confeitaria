@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('config.php');
+include_once('../db/config.php');
 if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true)) {
   unset($_SESSION['login']);
   unset($_SESSION['senha']);
@@ -8,7 +8,7 @@ if ((!isset($_SESSION['login']) == true) and (!isset($_SESSION['senha']) == true
 }
 $logado = $_SESSION['login'];
 
-  $sql = "SELECT * FROM usuarios ORDER BY id DESC";
+  $sql = "SELECT * FROM bolos ORDER BY id DESC";
 
   $result = $conexao->query($sql);
 
@@ -35,15 +35,15 @@ $logado = $_SESSION['login'];
   <!-- Material Icons -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="./css/material-dashboard.css" rel="stylesheet" />
+  <link id="pagestyle" href="../css/material-dashboard.css" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-radius-lg fixed-start ms-2  bg-white my-2" id="sidenav-main">
-    <div class="sidenav-header">
+  <div class="sidenav-header">
       <i class="fas fa-times p-3 cursor-pointer text-dark opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
       <a class="navbar-brand px-4 py-3 m-0" href=" index.php" target="_blank">
-        <img src="./images/logo.png" class="navbar-brand-img" width="250" height="250"alt="main_logo">
+        <img src="../images/logo.png" class="navbar-brand-img" width="250" height="250" alt="main_logo">
 
       </a>
     </div>
@@ -53,18 +53,18 @@ $logado = $_SESSION['login'];
       <ul class="navbar-nav">
      
         <li class="nav-item">
-          <a class="nav-link active bg-gradient-danger text-white" href="../pages/tables.html">
+          <a class="nav-link text-dark" href="usuarios.php">
             <i class="material-symbols-rounded opacity-5">table_view</i>
             <span class="nav-link-text ms-1">Usuarios</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark" href="bolos.php">
+          <a class="nav-link active bg-gradient-danger text-white" href="">
             <i class="material-symbols-rounded opacity-5">receipt_long</i>
             <span class="nav-link-text ms-1">Bolos</span>
           </a>
         </li>
-    
+      
       </ul>
     </div>
 
@@ -81,7 +81,7 @@ $logado = $_SESSION['login'];
             <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tables</li>
           </ol>
         </nav>
-  
+       
       </div>
     </nav>
     <!-- End Navbar -->
@@ -91,8 +91,8 @@ $logado = $_SESSION['login'];
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-danger shadow-dark border-radius-lg pt-4 pb-3 d-flex justify-content-between align-items-center">
-                <h6 class="text-white text-capitalize ps-3 mb-0">Usuarios</h6>
-                <a href="cadUsuarios.php" class="btn btn-white text-capitalize me-3">Cadastrar Usuarios</a>
+                <h6 class="text-white text-capitalize ps-3 mb-0">Bolos</h6>
+                <a href="cadBolos.php" class="btn btn-white text-capitalize me-3">Cadastrar Bolos</a>
               </div>
 
             </div>
@@ -102,8 +102,11 @@ $logado = $_SESSION['login'];
                   <thead>
                     <tr>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">ID</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Imagem</th>
                       <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Senha</th>
+                      
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Url</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Preço</th>
                       <th class="text-secondary opacity-7"></th>
                     </tr>
                   </thead>
@@ -111,17 +114,20 @@ $logado = $_SESSION['login'];
                     <?php 
                       while($user_data = mysqli_fetch_assoc($result)){
                         echo "<tr>";
+                        
+                        
                         echo "<td>".$user_data['id']."</td>";
-                        echo "<td>".$user_data['login']."</td>";
-                        echo "<td>".$user_data['senha']."</td>";
-                        echo "<td>
-                          <a class='btn btn-sm btn-primary' href='editUsuarios.php?id=$user_data[id]'>
+                        echo "<td><img src='".$user_data['url']."' width='50' height='50' </td>";
+                        echo "<td>".$user_data['nome']."</td>";
+                        echo "<td class='short-url'>".$user_data['url']."</td>";
+                        echo "<td>".$user_data['preco']."</td>";
+                        echo "<td action='removeUsuarios.php' method='POST'>
+                          <a class='btn btn-sm btn-primary' href='editBolos.php?id=$user_data[id]'>
                           <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-pencil' viewBox='0 0 16 16'>
                             <path d='M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325'/>
                           </svg>
                           </a>
                         </td>";
-                        
                         echo "</tr>";
                       }
                     ?>
@@ -132,7 +138,7 @@ $logado = $_SESSION['login'];
           </div>
         </div>
       </div>
- 
+     
       <footer class="footer py-4  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
