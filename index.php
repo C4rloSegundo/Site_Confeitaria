@@ -97,7 +97,7 @@ $logado = $_SESSION['login'];
     <a href="#menu" id="home-btn">Nosso menu</a>
   </div>
   <div class="img">
-    <img src="./images/image 46.png" alt="">
+    <img src="./images/bolo_principal.png" alt="">
   </div>
 </section>
 <!-- Home Section End -->
@@ -157,11 +157,18 @@ $logado = $_SESSION['login'];
 
       echo "<div class='col-md-3 py-3 py-md-0'>";
       echo "<div class='card'>";
-      echo  "<img src='".$user_data['url']."' alt=''>";
+      echo  "<img src='".$user_data['url']."' alt='' width='300' height = '250'> ";
       echo  "<div class='card-body'>";
-      echo   "<h3>M Chicken</h3>";
-      echo   "<h6>Lorem ipsum dolor sit amet.</h6>";
-      echo    "<p>$20 <i class='fa-solid fa-credit-card'></i></p>";
+      echo   "<h3>".$user_data['nome']."</h3>";
+      // echo   "<h6>Lorem ipsum dolor sit amet.</h6>";
+      echo "<div class='rating'>";
+      echo "<i class='fa-solid fa-star checked'></i>";
+      echo "<i class='fa-solid fa-star checked'></i>";
+      echo "<i class='fa-solid fa-star checked'></i>";
+      echo "<i class='fa-solid fa-star checked'></i>";
+      echo "<i class='fa-solid fa-star checked'></i>";
+      echo "</div>";
+      echo    "<p>R$ " .$user_data['preco']." <i class='fa-solid fa-credit-card'></i></p>";
       echo  "</div>";
       echo "</div>";
     echo "</div>";
@@ -243,7 +250,7 @@ $logado = $_SESSION['login'];
 
 
 
-  <div class="row" style="margin-top: 30px;">
+  <!-- <div class="row" style="margin-top: 30px;">
     <div class="col-md-3 py-3 py-md-0">
       <div class="card">
         <img src="./images/Grilled_pork_ribs.png" alt="">
@@ -318,7 +325,7 @@ $logado = $_SESSION['login'];
     </div>
 
 
-  </div>
+  </div> -->
 </section>
 <!-- Our Menu End -->
 
@@ -336,7 +343,7 @@ $logado = $_SESSION['login'];
 
 
 <!-- Our Menu Start -->
-<section class="menu" id="menu">
+<!-- <section class="menu" id="menu">
   <h3>Our Menu</h3>
 
 
@@ -421,7 +428,7 @@ $logado = $_SESSION['login'];
 
 
   </div>
-</section>
+</section> -->
 <!-- Our Menu End -->
 
 

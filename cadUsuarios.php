@@ -16,7 +16,7 @@
 
 <body>
     <div class="form-container">
-        <form action="verificarCadastro.php" method="POST">
+        <form action="verificarCadastroUsuarios.php" method="POST">
             <h1>Cadastro de Funcionarios</h1>
             <input type="text" placeholder="Nome" name="login" >
             <br><br>
